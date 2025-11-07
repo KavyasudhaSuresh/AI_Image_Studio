@@ -1,0 +1,351 @@
+/* === GLOBAL STYLES === */
+body {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  background: linear-gradient(135deg, #211e51, #dd2476);
+  min-height: 100vh;
+  color: #fff;
+}
+
+/* === VIDEO BACKGROUND === */
+#video-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  min-width: 100%;
+  min-height: 100%;
+  object-fit: cover;
+  z-index: -1;
+  opacity: 0.3; /* Adjust for visibility */
+}
+
+/* === NAVBAR STYLES (Upgraded with hover effect) === */
+nav {
+  width: 100%;
+  background: rgba(18, 18, 27, 0.9);
+  backdrop-filter: blur(8px);
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  display: flex;
+  justify-content: center;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+  transition: background 0.4s ease; /* added smooth transition */
+}
+
+/* Navbar hover effect */
+nav:hover {
+  background: rgba(77, 13, 52, 0.95); /* Light color change on hover */
+}
+
+nav a {
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 18px;
+  padding: 20px 25px;
+  display: inline-block;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+nav a::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: 10px;
+  width: 0;
+  height: 2px;
+  background: #ff6a00;
+  transition: 0.3s ease;
+  transform: translateX(-50%);
+}
+
+nav a:hover {
+  color: #ffb347;
+}
+
+nav a:hover::after {
+  width: 60%;
+}
+
+/* === CARD CONTAINER === */ 
+.container {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  margin-top: 80px;
+  flex-wrap: wrap;
+  padding: 0 20px;
+}
+
+/* === INDIVIDUAL CARD === */
+.card {
+  background: rgba(25, 25, 35, 0.9);
+  border: 1px solid rgba(77, 13, 52, 0.95);
+  border-radius: 20px;
+  width: 260px;
+  text-align: center;
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+  overflow: hidden;
+}
+
+.card:hover {
+  transform: translateY(-10px) scale(1.03);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+  background: rgba(77, 13, 52, 0.95);
+  animation: shadow-pop-tl 0.5s cubic-bezier(0.470, 0.000, 0.745, 0.715) both;
+}
+
+.card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  transition: filter 0.3s ease;
+}
+
+.card:hover img {
+  filter: brightness(1.1) contrast(1.05);
+}
+
+.card-title {
+  padding: 15px 10px 10px;
+  font-weight: 600;
+  font-size: 20px;
+  color: #fff;
+}
+
+/* === EXPLORE BUTTON === */
+.explore-btn {
+  background: linear-gradient(135deg, #ff7e5f, #feb47b);
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  margin-bottom: 20px;
+  border-radius: 30px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+  animation: pulsate-fwd 2s infinite;
+  box-shadow: 0 0 10px rgba(255, 126, 95, 0.7); /* Soft initial shadow */
+}
+
+/* === EXPLORE BUTTON HOVER EFFECT === */
+.explore-btn:hover {
+  background: linear-gradient(135deg, #feb47b, #ff7e5f);
+  transform: scale(1.08);
+  box-shadow: 0 0 5px rgba(255, 126, 95, 1), 0 0 5px rgba(255, 126, 95, 0.6); /* Glow effect */
+}
+
+/* === EXPLORE BUTTON PULSATE ANIMATION === */
+@keyframes pulsate-fwd {
+  0% {
+    transform: scale(1);
+    filter: brightness(1);
+  }
+  50% {
+    transform: scale(1.1);
+    filter: brightness(1.1);
+  }
+  100% {
+    transform: scale(1);
+    filter: brightness(1);
+  }
+}
+
+@keyframes shadow-pop-tl {
+  0% {
+    box-shadow: 0 0 #000000, 0 0 #000000, 0 0 #000000, 0 0 #000000;
+    transform: translate(0, 0);
+  }
+  100% {
+    box-shadow: -12px -12px rgba(0, 0, 0, 0.25);
+    transform: translate(12px, 12px);
+  }
+}
+
+.shadow-pop-tl {
+  animation: shadow-pop-tl 0.3s ease-in-out both;
+}
+
+  
+  /*explore button 
+
+  @keyframes pulsate-fwd {
+    0% {
+      transform: scale(1);
+      filter: brightness(1);
+    }
+    50% {
+      transform: scale(1.1);
+      filter: brightness(1.1);
+    }
+    100% {
+      transform: scale(1);
+      filter: brightness(1);
+    }
+  }
+  
+
+
+  /* === GLOBAL STYLES === 
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+    min-height: 100vh;
+    color: #fff;
+}*/
+
+/* === NAVBAR STYLES === 
+nav {
+    background: #1e1e2f;
+    padding: 15px 0;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+nav a {
+    margin: 0 20px;
+    text-decoration: none;
+    color: #f5f5f5;
+    font-weight: 600;
+    font-size: 18px;
+    padding: 10px 18px;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+nav a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0%;
+    height: 3px;
+    background: #ffd369;
+    transition: width 0.3s ease;
+}
+
+nav a:hover {
+    color: #ffd369;
+}
+
+nav a:hover::after {
+    width: 100%;
+}
+
+/* === CARD CONTAINER === 
+.container {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-top: 80px;
+    flex-wrap: wrap;
+    padding: 0 20px;
+}
+
+
+/* === INDIVIDUAL CARD === 
+.card {
+    background: #1f1f2e;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 20px;
+    width: 260px;
+    text-align: center;
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    will-change: transform, box-shadow;
+    overflow: hidden;
+    position: relative;
+}
+.card:hover {
+    transform: translateY(-10px) scale(1.03);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+    animation: shadow-pop-tl 0.4s ease-in-out both;
+  }
+ 
+    
+
+.card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    transition: transform 0.4s ease, filter 0.4s ease;
+}
+
+.card:hover img {
+    transform: scale(1.05);
+    filter: brightness(0.8) saturate(1.2);
+}
+
+.card-title {
+    padding: 15px 10px 10px;
+    font-weight: 600;
+    font-size: 20px;
+    color: #fff;
+}
+
+/* === EXPLORE BUTTON === 
+.explore-btn {
+    background: linear-gradient(135deg, #ff7e5f, #feb47b);
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    margin-bottom: 20px;
+    border-radius: 30px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    animation: pulsate-fwd 1.5s ease-in-out infinite both;
+}
+
+.explore-btn:hover {
+    background: linear-gradient(135deg, #feb47b, #ff7e5f);
+    transform: scale(1.1);
+    box-shadow: 0 0 10px rgba(255, 126, 95, 0.6);
+}
+
+/* === BUTTON ANIMATION === 
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(255, 126, 95, 0.4);
+    }
+    70% {
+        transform: scale(1.05);
+        box-shadow: 0 0 15px 5px rgba(255, 126, 95, 0.2);
+    }
+    100% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(255, 126, 95, 0.4);
+    }
+}
+    */
+
+
+  /* Background clor change 4x
+
+  @keyframes color-change-4x {
+    0% {
+      background: #3b1c6c;
+    }
+    33% {
+      background: #5b135f;
+    }
+    66% {
+      background: #20083d;
+    }
+    100% {
+      background: #76082b;
+    }
+  }
+  
+  .color-change-4x {
+    animation: color-change-4x 6s linear infinite alternate;
+  }
+ */
+  
