@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>High Resolution</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <style>
+    /* General Styles */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;  
+      text-align: center;
+      position: relative; /* To ensure content layers on top of video */
+    }
+
+    /* Video Background */
+    .video-background-container {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1; /* Sends the video to the background */
+    }
+
+    .video-background {
+      width: 100%;
+      height: 100%;
+      object-fit: cover; 
+      background: linear-gradient(135deg, #211e51, #dd2476);/* Ensures the video covers the full area */
+    }
+
+    /* Overlay Color */
+    .video-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(155, 42, 42, 0.5); /* Black overlay with 50% opacity */
+      z-index: 0; /* Ensures overlay is between the video and content */
+    }
+
+    /* Styling for images above the text */
+    .above-images {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 30px;
+      margin-bottom: 30px;
+    }
+
+    .above-images img {
+      width: 250px; /* Increase the image size */
+      border-radius: 10px;
+      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Styling for Text to Image Generator Section */
+    h1 {
+      font-size: 2rem;
+      color: #eff4f7;
+    }
+
+    h3 {
+      font-size: 1.5rem;
+      color: #f6edea;
+      margin-top: 20px;
+    }
+
+    /* Upload Form Styling */
+    #uploadForm {
+      margin-top: 20px;
+      z-index: 1;
+      position: relative;
+    }
+
+    /* Remove background from full input */
+    input[type="file"] {
+      font-size: 1rem;
+      color: #fff; /* Optional: make "No file chosen" white or keep default */
+      background: transparent;
+      border: none;
+      width: auto;
+    }
+
+    /* Only style the button part */
+    input[type="file"]::file-selector-button {
+      background-color: #ff22b5;
+      color: white;
+      border: none;
+      padding: 10px 18px;
+      margin-right: 10px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+
+    /* Hover effect for button */
+    input[type="file"]::file-selector-button:hover {
+      background-color: #4469f1;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 1rem;
+      background-color: #3cbf37;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #e64a19;
+    }
+
+    /* Styling for generated images */
+    .generated-images {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin-top: 30px;
+    }
+
+    .generated-images img {
+      width: 300px;
+      border-radius: 10px;
+      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Flicker Animation for Text */
+    @keyframes flicker {
+      0%, 18%, 22%, 25%, 53%, 57%, 100% {
+        opacity: 1;
+        text-shadow:
+          0 0 5px #fff,
+          0 0 10px #fff,
+          0 0 20px #ff00de,
+          0 0 30px #ff00de,
+          0 0 40px #ff00de,
+          0 0 50px #ff00de,
+          0 0 60px #ff00de;
+      }
+      20%, 24%, 55% {
+        opacity: 0.1;
+        text-shadow: none;
+      }
+    }
+
+    .flicker-text {
+      animation: flicker 2s infinite;
+    }
+
+    /* Heartbeat Animation for Heart */
+    @keyframes heartbeat {
+      0%, 100% {
+        transform: scale(1);
+      }
+      25% {
+        transform: scale(1.2);
+      }
+      50% {
+        transform: scale(1);
+      }
+      75% {
+        transform: scale(1.2);
+      }
+    }
+
+    .heartbeat {
+      animation: heartbeat 1.5s infinite;
+    }
+
+    /* Footer Styling */
+    footer {
+      text-align: center;
+      padding: 20px;
+      font-size: 18px;
+      color: white;
+      margin-top: 50px; /* This adds some space before the footer */
+    }
+
+    footer .flicker-text {
+      display: inline-block;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Video Background Container -->
+<div class="video-background-container">
+  <video autoplay muted loop class="video-background">
+    <source src="assets/videos/high_res.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+  <div class="video-overlay"></div>
+</div>
+
+<!-- Navbar -->
+<nav>
+  <a href="index.html">Home</a>
+  <a href="text2image.html">Text to Image</a>
+  <a href="highres.html">High Resolution</a>
+  <a href="styletransfer.html">Style Transfer</a>
+  <a href="about.html">About</a>
+</nav>
+
+<!-- Main content -->
+<div style="margin-top: 30px;">
+  <h1>Model Images</h1>
+  <!-- Above Images -->
+  <div class="above-images">
+    <img src="assets/css/images/high1.jpg" alt="Model 1">
+    <img src="assets/css/images/high2.jpg" alt="Model 2">
+    <img src="assets/css/images/high3.jpg" alt="Model 3">
+  </div>
+
+  <!-- Heading -->
+  <h1>Image Upscaler</h1>
+
+  <!-- Upload Form -->
+  <form id="uploadForm">
+    <input type="file" accept="image/*" required>
+    <button type="submit">Upload</button>
+  </form>
+
+  <!-- Upscaled Image -->
+  <h3>Upscaled Image:</h3>
+  <img id="outputImage" src="assets/css/images/highres.jpg" alt="Upscaled Image">
+
+</div>
+
+<!-- Footer -->
+<footer>
+  <span class="flicker-text">
+    Made with 
+    <span class="heartbeat" style="color: red; display: inline-block;">
+      ❤
+    </span> 
+    by KK
+  </span>
+</footer>
+
+<script>
+  document.getElementById("uploadForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+    alert("Backend not connected yet. Placeholder in use.");
+  });
+</script>
+
+</body>
+</html>

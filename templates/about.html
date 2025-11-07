@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>About Us - Image Generator</title>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      background: linear-gradient(135deg, #211e51, #dd2476);
+      min-height: 100vh;
+      color: #fff;
+      overflow: hidden; /* Hide scroll caused by bubbles */
+      position: relative;
+    }
+
+    /* Circles animation */
+    .circle {
+      position: absolute;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.1);
+      animation: move 20s linear infinite;
+    }
+
+    @keyframes move {
+      0% {
+        transform: translateY(0) translateX(0) scale(1);
+      }
+      50% {
+        transform: translateY(-100px) translateX(50px) scale(1.5);
+      }
+      100% {
+        transform: translateY(0) translateX(0) scale(1);
+      }
+    }
+
+    /* Different circle sizes */
+    .circle:nth-child(1) {
+      width: 100px;
+      height: 100px;
+      top: 10%;
+      left: 20%;
+      animation-duration: 25s;
+    }
+    .circle:nth-child(2) {
+      width: 150px;
+      height: 150px;
+      top: 30%;
+      left: 70%;
+      animation-duration: 30s;
+    }
+    .circle:nth-child(3) {
+      width: 80px;
+      height: 80px;
+      top: 60%;
+      left: 40%;
+      animation-duration: 22s;
+    }
+    .circle:nth-child(4) {
+      width: 120px;
+      height: 120px;
+      top: 80%;
+      left: 10%;
+      animation-duration: 28s;
+    }
+    
+    .circle:nth-child(5) {
+      width: 100px;
+      height: 100px;
+      top: 70%;
+      right: 20%;
+      animation-duration: 25s;
+    }
+
+    .circle:nth-child(6) {
+      width: 90px;
+      height: 90px;
+      top: 60%;
+      right: 30%;
+      animation-duration: 27s;
+    }
+
+    .circle:nth-child(7) {
+      width: 60px;
+      height: 60px;
+      top: 50%;
+      right: 40%;
+      animation-duration: 29s;
+    }
+
+    /* === NAVBAR === */
+    nav {
+      width: 100%;
+      background: rgba(18, 18, 27, 0.9);
+      backdrop-filter: blur(8px);
+      position: sticky;
+      top: 0;
+      z-index: 999;
+      display: flex;
+      justify-content: center;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+      transition: background 0.4s ease;
+    }
+
+    nav:hover {
+      background: rgba(77, 13, 52, 0.95);
+    }
+
+    nav a {
+      color: #ffffff;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 18px;
+      padding: 20px 25px;
+      display: inline-block;
+      position: relative;
+      transition: color 0.3s ease;
+    }
+
+    nav a::after {
+      content: '';
+      position: absolute;
+      left: 50%;
+      bottom: 10px;
+      width: 0;
+      height: 2px;
+      background: #ff6a00;
+      transition: 0.3s ease;
+      transform: translateX(-50%);
+    }
+
+    nav a:hover {
+      color: #ffb347;
+    }
+
+    nav a:hover::after {
+      width: 60%;
+    }
+
+    /* === CONTENT === */
+    .content {
+      max-width: 800px;
+      margin: 80px auto;
+      padding: 20px;
+      text-align: center;
+      background: rgba(0, 0, 0, 0.4);
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+      position: relative;
+      z-index: 1; /* Keep content above bubbles */
+    }
+
+    h1 {
+      font-size: 40px;
+      margin-bottom: 20px;
+    }
+
+    p {
+      font-size: 18px;
+      line-height: 1.8;
+      margin-bottom: 20px;
+    }
+
+    /* Flicker Animation for Text */
+  @keyframes flicker {
+    0%, 18%, 22%, 25%, 53%, 57%, 100% {
+      opacity: 1;
+      text-shadow:
+        0 0 5px #fff,
+        0 0 10px #fff,
+        0 0 20px #ff00de,
+        0 0 30px #ff00de,
+        0 0 40px #ff00de,
+        0 0 50px #ff00de,
+        0 0 60px #ff00de;
+    }
+    20%, 24%, 55% {
+      opacity: 0.1;
+      text-shadow: none;
+    }
+  }
+  
+  .flicker-text {
+    animation: flicker 2s infinite;
+  }
+  
+  /* Heartbeat Animation for Heart */
+  @keyframes heartbeat {
+    0%, 100% {
+      transform: scale(1);
+    }
+    25% {
+      transform: scale(1.2);
+    }
+    50% {
+      transform: scale(1);
+    }
+    75% {
+      transform: scale(1.2);
+    }
+  }
+  
+  .heartbeat {
+    animation: heartbeat 1.5s infinite;
+  }
+  </style>
+</head>
+<body>
+
+<!-- Moving Circles Background -->
+<div class="circle"></div>
+<div class="circle"></div>
+<div class="circle"></div>
+<div class="circle"></div>
+<div class="circle"></div>
+<div class="circle"></div>
+<div class="circle"></div>
+
+<!-- Navbar -->
+<nav>
+  <a href="index.html">Home</a>
+  <a href="text2image.html">Text to Image</a>
+  <a href="highres.html">High Resolution</a>
+  <a href="styletransfer.html">Style Transfer</a>
+  <a href="about.html">About</a>
+</nav>
+
+<!-- About Content -->
+<div class="content">
+  <h1>About Our Website</h1>
+  <p>
+    Welcome to our Image Generator platform! Our website offers powerful and easy-to-use tools for creating stunning images. 
+    Whether you want to generate images from text prompts, enhance image resolution, or apply artistic style transfers, we have it all covered.
+  </p>
+  <p>
+    Our services include:
+    <ul style="text-align: left; display: inline-block;">
+      <li><strong>Text to Image:</strong> Convert your ideas into beautiful pictures with simple prompts.</li>
+      <li><strong>High Resolution:</strong> Enhance the quality and sharpness of your favorite images.</li>
+      <li><strong>Style Transfer:</strong> Apply creative artistic styles to any photo effortlessly.</li>
+    </ul>
+  </p>
+  <p>
+    Our platform is <strong>completely free</strong> to use! We aim to make powerful image generation accessible for everyone. 
+    Simply enter your prompt or upload your photo, and generate multiple images instantly. It's easy, fast, and free!
+  </p>
+</div>
+
+<!-- Footer -->
+<footer style="
+  text-align: center;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  padding: 10px;
+  font-size: 18px;
+  color: white;
+">
+  <span class="flicker-text">
+    Made with 
+    <span class="heartbeat" style="color: red; display: inline-block;">
+      ❤
+    </span> 
+    by KK
+  </span>
+</footer>
+
+</body>
+</html>

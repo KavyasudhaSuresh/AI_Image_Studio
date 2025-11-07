@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>AI Image Tools</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+<!-- Flicker Glow and Heartbeat Animations -->
+<style>
+  /* Flicker Animation for Text */
+  @keyframes flicker {
+    0%, 18%, 22%, 25%, 53%, 57%, 100% {
+      opacity: 1;
+      text-shadow:
+        0 0 5px #fff,
+        0 0 10px #fff,
+        0 0 20px #ff00de,
+        0 0 30px #ff00de,
+        0 0 40px #ff00de,
+        0 0 50px #ff00de,
+        0 0 60px #ff00de;
+    }
+    20%, 24%, 55% {
+      opacity: 0.1;
+      text-shadow: none;
+    }
+  }
+  
+  .flicker-text {
+    animation: flicker 2s infinite;
+  }
+  
+  /* Heartbeat Animation for Heart */
+  @keyframes heartbeat {
+    0%, 100% {
+      transform: scale(1);
+    }
+    25% {
+      transform: scale(1.2);
+    }
+    50% {
+      transform: scale(1);
+    }
+    75% {
+      transform: scale(1.2);
+    }
+  }
+  
+  .heartbeat {
+    animation: heartbeat 1.5s infinite;
+  }
+  </style>
+    
+    
+</head>
+<body class="color-change-4x">
+  <!-- Navbar -->
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="text2image.html">Text to Image</a>
+    <a href="highres.html">High Resolution</a>
+    <a href="styletransfer.html">Style Transfer</a>
+    <a href="about.html">About</a>
+  </nav>
+
+  <!-- Cards -->
+  <div class="container">
+    <div class="card">
+      <img src="assets/css/images/text2image.jpg" alt="Text to Image">
+      <div class="card-title">Text to Image</div>
+      <a href="text2image.html"><button class="explore-btn">Explore</button></a>
+    </div>
+
+    <div class="card">
+      <img src="assets/css/images/highres.jpg" alt="High Resolution">
+      <div class="card-title">High Resolution</div>
+      <a href="highres.html"><button class="explore-btn">Explore</button></a>
+    </div>
+
+    <div class="card">
+      <img src="assets/css/images/styletransfer.jpg" alt="Style Transfer">
+      <div class="card-title">Style Transfer</div>
+      <a href="styletransfer.html"><button class="explore-btn">Explore</button></a>
+    </div>
+  </div>
+ <!-- Glowing Heart Footer -->
+<!-- Footer -->
+<footer style="
+  text-align: center;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  padding: 10px;
+  font-size: 18px;
+  color: white;
+">
+  <span class="flicker-text">
+    Made with 
+    <span class="heartbeat" style="color: red; display: inline-block;">
+      ❤
+    </span> 
+    by KK
+  </span>
+</footer>
+
+
+
+  <!-- Optional background video (commented) -->
+  
+  <video autoplay muted loop id="video-bg">
+    <source src="assets/videos/background.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+  
+</body>
+</html>
